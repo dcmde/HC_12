@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
         deleteln();
         recv_val = intprtkey(ch);
         mvprintw(1, 0, "You pressed: 0x%x (%s)", ch, recv_val);
-        hc_12_send(&hc12, recv_val, 1);
+        hc12_send(&hc12, recv_val, 1);
         refresh();
     }
 

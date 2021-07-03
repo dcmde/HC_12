@@ -45,17 +45,17 @@ typedef struct {
     void (*receive)(char *, size_t);
 } hc12_t;
 
-uint8_t hc_12_init(hc12_t *hc12);
+uint8_t hc12_init(hc12_t *hc12);
 
-uint8_t hc_12_check(hc12_t *hc12);
+uint8_t hc12_check(hc12_t *hc12);
 
-uint8_t hc_12_status(hc12_t *hc12);
+uint8_t hc12_status(hc12_t *hc12);
 
-uint8_t hc_12_set_baud_rate(hc12_t *hc12, HC_12_BAUD_RATE baudRate);
+uint8_t hc12_set_baud_rate(hc12_t *hc12, HC_12_BAUD_RATE baudRate);
 
-void hc_12_receive(hc12_t *hc12, char *buffer, uint8_t size);
+void hc12_receive(hc12_t *hc12, char *buffer, uint8_t size);
 
-void hc_12_send(hc12_t *hc12, char *buffer, uint8_t size);
+void hc12_send(hc12_t *hc12, char *buffer, uint8_t size);
 
 #ifdef __cplusplus
 }

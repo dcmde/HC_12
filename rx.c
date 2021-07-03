@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 
     while (1) {
         memset(rx, 0, 100);
-        hc_12_receive(&hc12, rx, 20);
+        hc12_receive(&hc12, rx, 20);
         printf("Receive %s\n", rx);
         RS232_flushRXTX(cport_nr);
         sleep(1);

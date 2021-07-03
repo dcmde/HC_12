@@ -74,10 +74,10 @@ int main(int argc, char *argv[]) {
 
     RS232_flushRXTX(cport_nr);
 
-    if (hc_12_check(&hc12)) {
+    if (hc12_check(&hc12)) {
         printf("Failed check HC12. Check that the set pin is Low.\n");
     }
-    hc_12_status(&hc12);
-    hc_12_set_baud_rate(&hc12, HC_9600);
+    hc12_status(&hc12);
+    hc12_set_baud_rate(&hc12, HC_9600);
 //    printf("%s %i\n", (char *) buffer, n);
 }

@@ -64,5 +64,5 @@ int main(int argc, char *argv[]) {
 
     RS232_flushRXTX(cport_nr);
 
-    hc_12_send(&hc12, argv[2], strlen(argv[2]));
+    hc12_send(&hc12, argv[2], strlen(argv[2]));
 }

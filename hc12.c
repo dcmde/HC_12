@@ -18,11 +18,11 @@ const char *HC_STATUS_OK = "OK";
 
 const char *HC_12_BAUD_RATE_ARRAY[] = {"1200", "2400", "4800", "9600", "19200", "38400", "57600"};
 
-uint8_t hc_12_init(hc12_t *hc12) {
+uint8_t hc12_init(hc12_t *hc12) {
 
 }
 
-uint8_t hc_12_check(hc12_t *hc12) {
+uint8_t hc12_check(hc12_t *hc12) {
     char buffer[2];
     hc12->send(HC_CMD_AT, strlen(HC_CMD_AT));
     hc12->receive(buffer, 2);
@@ -32,14 +32,14 @@ uint8_t hc_12_check(hc12_t *hc12) {
     return 1;
 }
 
-uint8_t hc_12_status(hc12_t *hc12) {
+uint8_t hc12_status(hc12_t *hc12) {
     char buffer[45] = {0};
     hc12->send(HC_CMD_RX, strlen(HC_CMD_RX));
     hc12->receive(buffer, 45);
     printf("%s\n", buffer);
 }
 
-uint8_t hc_12_set_baud_rate(hc12_t *hc12, HC_12_BAUD_RATE baudRate) {
+uint8_t hc12_set_baud_rate(hc12_t *hc12, HC_12_BAUD_RATE baudRate) {
     char buffer[40] = {0};
     strncat(buffer, HC_CMD_BDR, strlen(HC_CMD_BDR));
     strncat(buffer, HC_12_BAUD_RATE_ARRAY[baudRate], strlen(HC_12_BAUD_RATE_ARRAY[baudRate]));
@@ -49,10 +49,10 @@ uint8_t hc_12_set_baud_rate(hc12_t *hc12, HC_12_BAUD_RATE baudRate) {
     printf("Received %s\n", buffer);
 }
 
-void hc_12_receive(hc12_t *hc12, char *buffer, uint8_t size) {
+void hc12_receive(hc12_t *hc12, char *buffer, uint8_t size) {
     hc12->receive(buffer, size);
 }
 
-void hc_12_send(hc12_t *hc12, char *buffer, uint8_t size) {
+void hc12_send(hc12_t *hc12, char *buffer, uint8_t size) {
     hc12->send(buffer, size);
 }
