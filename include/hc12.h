@@ -3,6 +3,10 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum {
     HC_1200 = 0,
     HC_2400,
@@ -52,5 +56,9 @@ uint8_t hc_12_set_baud_rate(hc12_t *hc12, HC_12_BAUD_RATE baudRate);
 void hc_12_receive(hc12_t *hc12, char *buffer, uint8_t size);
 
 void hc_12_send(hc12_t *hc12, char *buffer, uint8_t size);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //HC_12_H
