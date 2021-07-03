@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "hc12.h"
-#include "rs232.h"
+#include "include/hc12.h"
+#include "include/rs232.h"
 
 char *portsArray = "0   ttyS0\n"
                    "1   ttyS1\n"

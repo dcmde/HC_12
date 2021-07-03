@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "hc12.h"
+#include "include/hc12.h"
 
 const char *HC_CMD_AT = "AT";
 const char *HC_CMD_BDR = "AT+B"; // Change the serial port baud rate.

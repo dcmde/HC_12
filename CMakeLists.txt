@@ -5,7 +5,8 @@ set(CMAKE_C_STANDARD 99)
 
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
-include_directories(.)
+include_directories(.
+        include)
 
 set(USER_SRC
         rs232.c
