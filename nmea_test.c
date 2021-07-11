@@ -31,6 +31,15 @@ char *portsArray = "0   ttyS0\n"
                    "24  ttyACM0\n"
                    "25  ttyACM1\n";
 
+char *nmea[] = {
+        "$GPGSV,3,2,10,18,48,152,34,25,23,111,26,26,57,298,43,27,03,245,36*7C\n",
+        "$GPGSV,3,3,10,29,53,056,38,31,56,217,47*7B\n",
+        "$GPGLL,4749.11685,N,00221.91829,W,082244.00,A,A*7C\n",
+        "$GPRMC,082245.00,A,4749.11686,N,00221.91831,W, 0.113,,290621,,,A*63\n",
+        "A,A*7C\n",
+        "$GPRMC,082245.00,A,4749.11686,N,00221.91831,W,\n"
+};
+
 int cport_nr;
 
 char *intprtkey(int ch);
@@ -83,15 +92,32 @@ int main(int argc, char *argv[]) {
 
     while ((ch = getch()) != 'q') {
         deleteln();
-        recv_val = intprtkey(ch);
-        if(ch == '\n'){
-            mvprintw(1, 0, "You pressed: return, sending %s", array);
-	    hc12_send(&hc12, array, 10);
-	}
-	else{
-            mvprintw(1, 0, "You pressed: 0x%x (%s) %c", ch, recv_val, ch);
-	    hc12_send(&hc12, recv_val, 1);
-	}
+        switch (ch) {
+            case '1':
+                hc12_send(&hc12, nmea[0], strlen(nmea[0]));
+                mvprintw(1, 0, "You pressed: %c, sending %s", ch, nmea[0]);
+                break;
+            case '2':
+                hc12_send(&hc12, nmea[1], strlen(nmea[1]));
+                mvprintw(1, 0, "You pressed: %c, sending %s", ch, nmea[1]);
+                break;
+            case '3':
+                hc12_send(&hc12, nmea[2], strlen(nmea[2]));
+                mvprintw(1, 0, "You pressed: %c, sending %s", ch, nmea[2]);
+                break;
+            case '4':
+                hc12_send(&hc12, nmea[3], strlen(nmea[3]));
+                mvprintw(1, 0, "You pressed: %c, sending %s", ch, nmea[3]);
+                break;
+            case '5':
+                hc12_send(&hc12, nmea[4], strlen(nmea[4]));
+                mvprintw(1, 0, "You pressed: %c, sending %s", ch, nmea[4]);
+                refresh();
+                sleep(1);
+                hc12_send(&hc12, nmea[5], strlen(nmea[5]));
+                mvprintw(1, 0, "You pressed: %c, sending %s", ch, nmea[5]);
+                break;
+        }
         refresh();
     }
 

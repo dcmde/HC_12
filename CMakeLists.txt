@@ -19,3 +19,6 @@ add_executable(hc_rx rx.c ${USER_SRC})
 
 add_executable(cli_tx tx_cli.c ${USER_SRC})
 target_link_libraries(cli_tx ${CURSES_LIBRARIES})
+
+add_executable(nmea_test nmea_test.c ${USER_SRC})
+target_link_libraries(nmea_test ${CURSES_LIBRARIES})
